@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Alex Brooks</title>
+  <title>Portfolio | BrooksAlex</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <a href="index.html" class="logo">Home</a>
+    <a href="index.html" class="logo">BrooksAlex</a>
     <nav>
-      <a href="about.html">Videos</a>
+      <a href="index.html">Home</a>
       <a href="portfolio.html">Portfolio</a>
+      <a href="videos.html">Videos</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Container -->
-  <div class="container">
+  <div class="container image-portfolio">
     <!-- Image Portfolio Section -->
     <section class="image-portfolio">
       <h2>Artworks</h2>
@@ -54,41 +53,28 @@
             <p>Digital / T-Shirt Design for Trollgang's appearance at Dreamhack Atlanta 2025</p>
           </div>
         </div>
-        <!-- Add more image cards here -->
-      </div>
-    </section>
 
+      <!-- Add more image cards here -->
+    </div>
+  </div>
 
+  <!-- Lightbox Modal -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Enlarged artwork">
+  </div>
 
-  <!-- Footer -->
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox').style.display = 'flex';
+      document.getElementById('lightbox-img').src = src;
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
   <footer>
-    &copy; 2025 Alex Brooks. All Rights Reserved.
+    &copy; 2025 BrooksAlex. All Rights Reserved.
   </footer>
-    
-<!-- Lightbox Modal -->
-<div id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="Enlarged artwork">
-</div>
-
-<script>
-function openLightbox(src) {
-  document.getElementById('lightbox').style.display = 'flex';
-  document.getElementById('lightbox-img').src = src;
-}
-
-function closeLightbox() {
-  document.getElementById('lightbox').style.display = 'none';
-}
-</script>
-
-    
 </body>
 </html>
-
-
-
-
-
-
-
-
