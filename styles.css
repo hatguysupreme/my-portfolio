@@ -1,4 +1,195 @@
 /* -------------------------
+   Art Studio Warm Portfolio
+   Fully Centered Version
+------------------------- */
+
+:root {
+  --warm-beige: #f3e9dd;
+  --soft-black: #1a1a1a;
+  --rust: #d6682a;
+  --muted: #6b5a50;
+  --max-width: 1200px;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--warm-beige);
+  color: var(--soft-black);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  text-align: center;
+}
+
+/* -------------------------
+   Container
+------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px;
+  text-align: center;
+}
+
+/* -------------------------
+   Header / Nav
+------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(243, 233, 221, 0.95);
+  backdrop-filter: blur(5px);
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+header .logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--soft-black);
+  margin-bottom: 8px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+nav a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--soft-black);
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: var(--rust);
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* -------------------------
+   Hero Section
+------------------------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.hero .cta {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--rust);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hero .cta:hover {
+  background: #b55623;
+  transform: translateY(-2px);
+}
+
+.hero img {
+  margin: 0 auto;
+  max-width: 80%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* -------------------------
+   Image Portfolio Grid
+------------------------- */
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 0;
+}
+
+.card {
+  flex: 0 1 240px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: var(--soft-black);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-meta {
+  padding: 16px;
+}
+
+.card-meta h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card-meta p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* -------------------------
    Video Portfolio Section
 ------------------------- */
 .video-portfolio {
@@ -25,6 +216,12 @@
   gap: 12px;
 }
 
+.video-card video {
+  max-width: 480px;
+  width: 100%;
+  border-radius: 8px;
+}
+
 .video-card h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
@@ -36,10 +233,91 @@
   text-align: center;
 }
 
-/* Make videos responsive on smaller screens */
+/* -------------------------
+   About Section
+------------------------- */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.about img {
+  margin: 0 auto;
+  max-width: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.about h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.about p {
+  font-size: 16px;
+  max-width: 700px;
+  color: var(--soft-black);
+}
+
+/* -------------------------
+   Contact Section
+------------------------- */
+.contact {
+  padding: 40px 20px;
+}
+
+.contact a {
+  color: var(--rust);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------
+   Footer
+------------------------- */
+footer {
+  padding: 32px 20px;
+  background: #e8dace;
+  text-align: center;
+  font-size: 14px;
+  color: var(--soft-black);
+}
+
+footer a {
+  color: var(--soft-black);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: var(--rust);
+}
+
+/* -------------------------
+   Responsive
+------------------------- */
 @media (max-width: 900px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+  .about h2 {
+    font-size: 28px;
+  }
+  .portfolio-grid {
+    gap: 16px;
+  }
   .video-card video {
-    width: 100%;
-    max-width: 480px;
+    max-width: 100%;
+  }
+  nav a {
+    margin: 0 6px 8px 6px;
   }
 }
