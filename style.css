@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #f6efe7;
+  color: #3c2f2f;
+}
+
+header {
+  background: #c89f7b;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #3c2f2f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  padding: 80px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+.grid img {
+  width: 100%;
+  border-radius: 8px;
+}
