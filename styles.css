@@ -1,6 +1,6 @@
 /* -------------------------
    Art Studio Warm Portfolio
-   Updated Styles
+   Center-Aligned Version
 ------------------------- */
 
 :root {
@@ -23,18 +23,14 @@ body {
   color: var(--soft-black);
   line-height: 1.6;
   scroll-behavior: smooth;
+  text-align: center; /* center all text by default */
 }
 
 /* Container */
 .container {
   max-width: var(--max-width);
-  margin: 0 auto; /* centers container */
+  margin: 0 auto;
   padding: 32px;
-  text-align: center; /* center all text by default */
-}
-
-footer {
-  text-align: center;
 }
 
 /* -------------------------
@@ -60,7 +56,7 @@ nav {
   margin-top: 8px;
 }
 nav a {
-  margin-right: 20px;
+  margin: 0 10px;
   font-weight: 600;
   text-decoration: none;
   color: var(--soft-black);
@@ -85,17 +81,40 @@ nav a:hover::after {
 ------------------------- */
 .hero {
   display: flex;
-  flex-direction: column; /* stack elements vertically */
-  align-items: center;    /* center horizontally */
+  flex-direction: column;
+  align-items: center; /* center horizontally */
   gap: 20px;
   padding: 60px 20px;
 }
-.hero h1, .hero p, .hero .cta {
-  text-align: center;
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  line-height: 1.2;
+}
+.hero p {
+  font-size: 18px;
+  color: var(--muted);
+}
+.hero .cta {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--rust);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.hero .cta:hover {
+  background: #b55623;
+  transform: translateY(-2px);
 }
 .hero img {
-  margin: 0 auto; /* center image */
+  margin: 0 auto;
   max-width: 80%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
 /* -------------------------
@@ -104,35 +123,92 @@ nav a:hover::after {
 .portfolio-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* center all items horizontally */
+  justify-content: center; /* center all items */
   gap: 24px;
+  padding: 40px 0;
 }
 
 .card {
-  flex: 0 1 240px; /* keep card width fixed */
-  text-align: center; /* center text inside cards */
+  flex: 0 1 240px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: var(--soft-black);
+}
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+.card:hover img {
+  transform: scale(1.05);
+}
+.card-meta {
+  padding: 16px;
+}
+.card-meta h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.card-meta p {
+  font-size: 14px;
+  color: var(--muted);
 }
 
 /* -------------------------
-   About + Contact Section
+   About Section
 ------------------------- */
-.about, .contact {
+.about {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  padding: 40px 20px;
 }
-
 .about img {
   margin: 0 auto;
+  max-width: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.about h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+.about p {
+  font-size: 16px;
+  max-width: 700px;
+  color: var(--soft-black);
 }
 
+/* -------------------------
+   Contact Section
+------------------------- */
+.contact {
+  padding: 40px 20px;
+}
+.contact a {
+  color: var(--rust);
+  font-weight: 600;
+  text-decoration: none;
+}
+.contact a:hover {
+  text-decoration: underline;
+}
 
 /* -------------------------
    Footer
 ------------------------- */
 footer {
-  padding: 32px 0;
+  padding: 32px 20px;
   background: #e8dace;
   text-align: center;
   font-size: 14px;
@@ -151,16 +227,17 @@ footer a:hover {
    Responsive
 ------------------------- */
 @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
+  .hero h1 {
+    font-size: 36px;
   }
-  .about {
-    grid-template-columns: 1fr;
+  .about h2 {
+    font-size: 28px;
+  }
+  .portfolio-grid {
+    gap: 16px;
   }
   nav a {
     display: inline-block;
-    margin-right: 12px;
-    margin-bottom: 8px;
+    margin: 0 6px 8px 6px;
   }
 }
-
