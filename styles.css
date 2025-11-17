@@ -1,6 +1,6 @@
 /* -------------------------
    Art Studio Warm Portfolio
-   Fully Center-Aligned Version
+   Fully Center-Aligned (Header + Body)
 ------------------------- */
 
 :root {
@@ -23,7 +23,7 @@ body {
   color: var(--soft-black);
   line-height: 1.6;
   scroll-behavior: smooth;
-  text-align: center; /* center all text by default */
+  text-align: center;
 }
 
 /* Container */
@@ -31,17 +31,12 @@ body {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 32px;
+  text-align: center;
 }
 
 /* -------------------------
    Header / Nav
 ------------------------- */
-header .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centers logo + nav */
-  text-align: center;
-}
 header {
   position: sticky;
   top: 0;
@@ -51,26 +46,35 @@ header {
   padding: 20px 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.06);
 
-  /* Center the header content */
   display: flex;
-  flex-direction: column; /* stack logo and nav vertically */
+  flex-direction: column; /* stack logo + nav */
   align-items: center;    /* center horizontally */
   text-align: center;
 }
+
+/* If there’s a container div inside header */
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 header .logo {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 24px;
   text-decoration: none;
   color: var(--soft-black);
-  margin-bottom: 8px; /* spacing below logo */
+  margin-bottom: 8px;
 }
+
 nav {
-  margin-top: 8px;
   display: flex;
-  justify-content: center; /* center links horizontally */
-  flex-wrap: wrap;         /* wrap links on smaller screens */
-  gap: 10px;               /* spacing between links */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
 }
 nav a {
   font-weight: 600;
@@ -98,7 +102,7 @@ nav a:hover::after {
 .hero {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center horizontally */
+  align-items: center;
   gap: 20px;
   padding: 60px 20px;
 }
@@ -126,7 +130,7 @@ nav a:hover::after {
   transform: translateY(-2px);
 }
 .hero img {
-  margin: 0 auto; /* center image */
+  margin: 0 auto;
   max-width: 80%;
   border-radius: 12px;
   object-fit: cover;
@@ -139,7 +143,7 @@ nav a:hover::after {
 .portfolio-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* center all items horizontally */
+  justify-content: center;
   gap: 24px;
   padding: 40px 0;
 }
@@ -255,4 +259,3 @@ footer a:hover {
     margin: 0 6px 8px 6px;
   }
 }
-
