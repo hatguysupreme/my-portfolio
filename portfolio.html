@@ -24,7 +24,7 @@
       <h2>Artworks</h2>
       <div class="portfolio-grid">
         <div class="card">
-          <img src="images/image1.png" alt="Turnaround for Unreleased Project [2023]">
+         <img src="images/image1.png" alt="Artwork 1" class="portfolio-thumb" onclick="openLightbox('images/image1.png')">
           <div class="card-meta">
             <h3>Concept Art [2023]</h3>
             <p>Digital / Turnaround for Unreleased Project</p>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="card">
-          <img src="images/image2.jpg" alt="Burning Up [2021, 8.5x11]">
+         <img src="images/image2.jpg" alt="Artwork 1" class="portfolio-thumb" onclick="openLightbox('images/image2.jpg')">
           <div class="card-meta">
             <h3>Burning Up [2021, 8.5x11]</h3>
             <p>Graphite on paper + Digital Color</p>
@@ -40,7 +40,7 @@
         </div>
 
            <div class="card">
-          <img src="images/image3.jpg" alt="Moments Before the Destruction of the Tower of Babel [2018, 25x30]">
+          <img src="images/image3.jpg" alt="Artwork 1" class="portfolio-thumb" onclick="openLightbox('images/image3.jpg')">
           <div class="card-meta">
             <h3>Moments Before the Destruction of the Tower of Babel [2018, 25x30]</h3>
             <p>Charcoal / Concentration piece during time at Georgia State University</p>
@@ -48,7 +48,7 @@
         </div>
 
           <div class="card">
-          <img src="images/image4.png" alt="T-Shirt Design for Trollgang [2025]">
+         <img src="images/image4.png" alt="Artwork 1" class="portfolio-thumb" onclick="openLightbox('images/image4.png')">
           <div class="card-meta">
             <h3>T-Shirt Design [2025]</h3>
             <p>Digital / T-Shirt Design for Trollgang's appearance at Dreamhack Atlanta 2025</p>
@@ -64,8 +64,27 @@
   <footer>
     &copy; 2025 Alex Brooks. All Rights Reserved.
   </footer>
+    
+<!-- Lightbox Modal -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Enlarged artwork">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById('lightbox').style.display = 'flex';
+  document.getElementById('lightbox-img').src = src;
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+</script>
+
+    
 </body>
 </html>
+
 
 
 
