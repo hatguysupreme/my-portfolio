@@ -325,9 +325,15 @@ footer a:hover {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 8px;
+  max-width: 700px;
   display: block;
-  max-width: 700px; /* optional: increases size on desktop */
+  margin: 0 auto;
+}
 
+/* This is a completely separate rule */
+.tiktok-embed {
+  margin: 0 auto !important;
+}
 }
 #lightbox {
   display: none;
@@ -349,4 +355,5 @@ footer a:hover {
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   object-fit: contain;
 }
+
 
