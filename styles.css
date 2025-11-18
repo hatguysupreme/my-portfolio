@@ -1,346 +1,110 @@
-/* -------------------------
-   Art Studio Warm Portfolio
-   Fully Centered Version
-------------------------- */
-
-:root {
-  --warm-beige: #f3e9dd;
-  --soft-black: #1a1a1a;
-  --rust: #d6682a;
-  --muted: #6b5a50;
-  --max-width: 1200px;
-}
-
-/* Reset */
-* {
-  box-sizing: border-box;
+/* ---------- RESET ---------- */
+body, h1, h2, h3, p, a, div, header, footer, nav {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--warm-beige);
-  color: var(--soft-black);
+  font-family: "Arial", sans-serif;
   line-height: 1.6;
-  scroll-behavior: smooth;
-  text-align: center;
+  background-color: #fdfdfd;
+  color: #222;
 }
 
-/* -------------------------
-   Container
-------------------------- */
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 32px;
-  text-align: center;
-}
-
-/* -------------------------
-   Header / Nav
-------------------------- */
+/* ---------- HEADER ---------- */
 header {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  border-bottom: 1px solid #ccc;
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(243, 233, 221, 0.95);
-  backdrop-filter: blur(5px);
-  padding: 20px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
 header .logo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 24px;
+  font-size: 1.7rem;
   text-decoration: none;
-  color: var(--soft-black);
-  margin-bottom: 8px;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
+  color: #000;
+  font-weight: bold;
 }
 
 nav a {
-  font-weight: 600;
+  margin-left: 20px;
   text-decoration: none;
-  color: var(--soft-black);
-  position: relative;
+  font-weight: bold;
+  color: #444;
 }
 
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background: var(--rust);
-  transition: width 0.3s;
+nav a:hover {
+  color: #000;
 }
 
-nav a:hover::after {
-  width: 100%;
+/* ---------- GENERAL LAYOUT ---------- */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
 }
 
-/* -------------------------
-   Hero Section
-------------------------- */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 60px 20px;
+/* ---------- VIDEO SECTIONS ---------- */
+.video-section {
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ddd;
 }
 
-.hero h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 48px;
-  line-height: 1.2;
+.video-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #111;
 }
 
-.hero p {
-  font-size: 18px;
-  color: var(--muted);
+.video-section p {
+  color: #555;
+  margin-bottom: 25px;
 }
 
-.hero .cta {
-  display: inline-block;
-  padding: 14px 28px;
-  background: var(--rust);
-  color: #fff;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.hero .cta:hover {
-  background: #b55623;
-  transform: translateY(-2px);
-}
-
-.hero img {
-  margin: 0 auto;
-  max-width: 80%;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-/* -------------------------
-   Image Portfolio Grid
-------------------------- */
-.portfolio-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  padding: 40px 0;
-}
-
-.card {
-  flex: 0 1 240px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-decoration: none;
-  color: var(--soft-black);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s;
-}
-
-.card:hover img {
-  transform: scale(1.05);
-}
-
-.card-meta {
-  padding: 16px;
-}
-
-.card-meta h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.card-meta p {
-  font-size: 14px;
-  color: var(--muted);
-}
-
-/* -------------------------
-   Video Portfolio Section
-------------------------- */
-.video-portfolio {
-  padding: 40px 20px;
-}
-
-.video-portfolio h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 32px;
-  margin-bottom: 24px;
-}
-
+/* ---------- VIDEO GRID ---------- */
 .video-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
 }
 
 .video-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.video-card video {
-  max-width: 480px;
+.video-card iframe {
   width: 100%;
-  border-radius: 8px;
+  height: 220px;
+  border-radius: 10px;
 }
 
 .video-card h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #222;
 }
 
 .video-card p {
-  font-size: 14px;
-  color: var(--muted);
-  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
 }
 
-/* -------------------------
-   About Section
-------------------------- */
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 40px 20px;
-}
-
-.about img {
-  margin: 0 auto;
-  max-width: 300px;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.about h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-
-.about p {
-  font-size: 16px;
-  max-width: 700px;
-  color: var(--soft-black);
-}
-
-/* -------------------------
-   Contact Section
-------------------------- */
-.contact {
-  padding: 40px 20px;
-}
-
-.contact a {
-  color: var(--rust);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.contact a:hover {
-  text-decoration: underline;
-}
-
-/* -------------------------
-   Footer
-------------------------- */
+/* ---------- FOOTER ---------- */
 footer {
-  padding: 32px 20px;
-  background: #e8dace;
   text-align: center;
-  font-size: 14px;
-  color: var(--soft-black);
+  padding: 30px 0;
+  margin-top: 50px;
+  color: #666;
+  font-size: 0.9rem;
 }
-
-footer a {
-  color: var(--soft-black);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-footer a:hover {
-  color: var(--rust);
-}
-
-#lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-#lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  object-fit: contain;
-}
-
-
-/* -------------------------
-   Responsive
-------------------------- */
-@media (max-width: 900px) {
-  .hero h1 {
-    font-size: 36px;
-  }
-  .about h2 {
-    font-size: 28px;
-  }
-  .portfolio-grid {
-    gap: 16px;
-  }
-  .video-card video {
-    max-width: 100%;
-  }
-  nav a {
-    margin: 0 6px 8px 6px;
-  }
-}
-
