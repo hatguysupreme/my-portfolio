@@ -321,13 +321,13 @@ footer a:hover {
     margin: 0 6px 8px 6px;
   }
 }
-
 .video-card iframe {
   width: 100%;
-  max-width: 480px;
-  height: auto;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   border-radius: 8px;
+  display: block;
+  max-width: 700px; /* optional: increases size on desktop */
+
 }
 #lightbox {
   display: none;
@@ -349,3 +349,4 @@ footer a:hover {
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   object-fit: contain;
 }
+
