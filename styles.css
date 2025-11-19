@@ -400,3 +400,38 @@ iframe {
 }
 
 
+/* Very specific video wrapper + iframe override */
+.video-wrapper,
+.video-wrapper iframe {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.video-wrapper {
+  position: relative !important;
+  padding-bottom: 56.25% !important;  /* 16:9 ratio */
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.video-wrapper iframe {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  border-radius: 8px !important;
+}
+
+/* Fallback if wrapper is not used */
+.video-card iframe {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  border: none !important;
+  border-radius: 8px !important;
+}
+
