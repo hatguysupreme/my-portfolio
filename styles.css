@@ -337,7 +337,7 @@ iframe {
 .tiktok-embed {
   margin: 0 auto !important;
 }
-}
+
 #lightbox {
   display: none;
   position: fixed;
@@ -398,4 +398,5 @@ iframe {
 .video-card .tiktok-embed iframe {
   max-width: 100% !important;
 }
+
 
