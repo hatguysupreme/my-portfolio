@@ -378,3 +378,24 @@ iframe {
   border-radius: 8px;
 }
 
+/* Force TikTok embeds to behave like responsive videos */
+.video-card blockquote.tiktok-embed {
+  width: 100% !important;
+  max-width: 480px !important;
+}
+
+.video-card blockquote.tiktok-embed iframe {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 9 / 16 !important;
+  border-radius: 8px;
+}
+
+.video-card .tiktok-embed > section {
+  width: 100% !important;
+}
+
+.video-card .tiktok-embed iframe {
+  max-width: 100% !important;
+}
+
