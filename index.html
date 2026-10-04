@@ -3,65 +3,297 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alex Brooks, résumé</title>
+<title>Alex Brooks</title>
+<meta name="description" content="Alex Brooks is an Atlanta-based visual artist and video producer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&display=swap">
 <style>
-  @page { size: letter; margin: 0.7in; }
+  :root {
+    --bg: #fff;
+    --ink: #000;
+    --mid: #6b6b6b;
+    --rule: #000;
+    --mark: #fff17a;
+  }
   * { box-sizing: border-box; }
-  body { margin: 0 auto; max-width: 7.1in; padding: 40px 20px; color: #000; background: #fff; font: 11.5pt/1.4 Georgia, "Times New Roman", serif; }
-  h1 { font-size: 24pt; font-weight: 400; margin: 0 0 2px; }
-  .role { margin: 0 0 4px; font-size: 12pt; }
-  .links { margin: 0 0 22px; color: #444; font-size: 10.5pt; }
-  .links a { color: inherit; text-decoration: none; }
-  h2 { font-size: 11pt; font-weight: 400; text-transform: uppercase; letter-spacing: 0.08em; margin: 20px 0 6px; padding-bottom: 3px; border-bottom: 1px solid #000; }
-  ul { margin: 0; padding: 0; list-style: none; }
-  li { margin: 0 0 9px; }
-  li b { font-weight: 700; }
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
-  .cols li { margin-bottom: 3px; }
-  .todo { color: #a00; font-style: italic; }
-  @media print { body { padding: 0; } }
-  @media (max-width: 600px) { .cols { grid-template-columns: 1fr; } }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.4 Georgia, "Times New Roman", Times, serif;
+    font-variant-numeric: tabular-nums;
+  }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+
+  .page { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
+
+  aside {
+    position: sticky; top: 0; align-self: start; height: 100vh;
+    padding: 26px 26px;
+    border-right: 1px solid var(--rule);
+    display: flex; flex-direction: column;
+  }
+  aside h1 { font-family: Gloock, Georgia, serif; font-weight: 400; font-size: 46px; line-height: 1; margin: 0 0 12px; letter-spacing: -0.01em; }
+  aside .role { color: var(--mid); margin: 0 0 22px; font-size: 16px; }
+  aside .sprite { width: 110px; margin: 0 0 28px; }
+  aside nav a { display: block; text-decoration: none; margin-bottom: 4px; }
+  aside nav a:hover { background: var(--mark); }
+  aside .links { margin-top: auto; font-size: 15px; color: var(--mid); }
+  aside .links a { display: block; text-decoration: none; margin-bottom: 3px; }
+  aside .links a:hover { color: var(--ink); background: var(--mark); }
+
+  main { padding: 26px 40px 80px; min-width: 0; }
+  h2 { font-family: Gloock, Georgia, serif; font-weight: 400; font-size: 30px; margin: 0 0 14px; }
+  section + section { margin-top: 64px; }
+
+  .list { border-top: 1px solid var(--rule); }
+  details { border-bottom: 1px solid var(--rule); }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 64px 1.1fr;
+    gap: 24px;
+    padding: 11px 6px;
+    margin: 0 -6px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover, details[open] summary { background: var(--mark); }
+  summary .t { font-style: italic; }
+  summary .y, summary .m { color: var(--mid); }
+  details[open] summary .y, details[open] summary .m { color: var(--ink); }
+  details .body { padding: 10px 0 32px; }
+  details .body img { max-width: min(100%, 900px); max-height: 80vh; width: auto; }
+  details .body p { margin: 12px 0 0; color: var(--mid); font-size: 15px; max-width: 70ch; }
+  details .body a { display: inline-block; }
+  details .body .yt { max-width: 560px; }
+  details .body .tt { max-width: 280px; }
+
+  .peek { position: fixed; pointer-events: none; z-index: 20; width: 320px; max-height: 360px; object-fit: contain; object-position: left top; display: none; }
+  @media (hover: hover) and (pointer: fine) { .peek.on { display: block; } }
+
+  .about p { margin: 0 0 1em; max-width: 62ch; }
+  .about a:hover { background: var(--mark); }
+
+  footer { margin-top: 80px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 15px; color: var(--mid); display: flex; justify-content: space-between; }
+  footer a { text-decoration: none; }
+  footer a:hover { background: var(--mark); }
+
+  @media (max-width: 760px) {
+    .page { grid-template-columns: 1fr; }
+    aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--rule); padding: 18px 16px; display: grid; grid-template-columns: 1fr auto; column-gap: 16px; align-items: start; }
+    aside h1 { font-size: 36px; }
+    aside .role { margin-bottom: 14px; }
+    aside .sprite { width: 72px; margin: 0; grid-column: 2; grid-row: 1 / 3; }
+    aside nav { grid-column: 1 / -1; display: flex; gap: 16px; }
+    aside .links { display: none; }
+    main { padding: 22px 16px 60px; }
+    summary { grid-template-columns: 1fr 56px; gap: 4px 12px; }
+    summary .t { grid-column: 1; grid-row: 1; }
+    summary .y { grid-column: 2; grid-row: 1; text-align: right; }
+    summary .m { grid-column: 1 / -1; font-size: 15px; }
+  }
+
+  .resume-links { margin: 0 0 18px; }
+  .resume-links a { text-decoration: none; border-bottom: 1px solid var(--ink); margin-right: 22px; }
+  .resume-links a:hover { background: var(--mark); }
+  .resume .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0 40px; }
+  .resume h3 { font-size: 17px; font-weight: 400; font-style: italic; margin: 18px 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--rule); }
+  .resume h3:first-child { margin-top: 0; }
+  .resume ul { margin: 0; padding: 0; list-style: none; }
+  .resume li { margin: 0 0 10px; max-width: 62ch; }
+  .resume li b { font-weight: 400; font-style: italic; }
+  .resume .tight li { margin-bottom: 3px; }
+  .todo { background: var(--mark); }
+  @media (max-width: 760px) { .resume .cols { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-<h1>Alex Brooks</h1>
-<p class="role">Visual artist and video producer, Atlanta, Georgia</p>
-<p class="links"><a href="mailto:alexander.a.brooks@gmail.com">alexander.a.brooks@gmail.com</a> · <a href="https://brooksalex.com">brooksalex.com</a> · <span class="todo">[LinkedIn]</span></p>
+<div class="page">
 
-<h2>Experience</h2>
-<ul>
-  <li><b>Freelance artist and video producer</b>, Atlanta. <span class="todo">[year]</span> to now.<br>Drawing, animation, and video for small clients and independent projects. Recent jobs include the Trollgang shirt for Dreamhack Atlanta 2025 and character concept art for an unreleased project (2023).</li>
-  <li><b>CascadeCascade</b>, YouTube. <span class="todo">[year]</span> to now.<br>Deck techs and shorts about Magic: The Gathering.</li>
-  <li><b>@i.like.junk.cards</b>, TikTok.<br>Videos about junk cards, PSA 1s, and other oddball collectibles.</li>
-  <li><b class="todo">[card shop name]</b>, <span class="todo">[title]</span>. <span class="todo">[dates]</span><br><span class="todo">[a line or two about the job]</span></li>
-</ul>
-
-<h2>Education</h2>
-<ul>
-  <li><b>Georgia State University</b>, BFA, Drawing and Painting. <span class="todo">[year]</span></li>
-</ul>
-
-<div class="cols">
-  <div>
-    <h2>Skills</h2>
-    <ul>
-      <li>Charcoal, graphite, and oil</li>
-      <li>Digital illustration and color</li>
-      <li>Character design and turnarounds</li>
-      <li>Hand-drawn animation</li>
-      <li>Video editing and voice-over</li>
-      <li>Running a YouTube channel and a TikTok</li>
-      <li class="todo">[software: drawing, editing, animation]</li>
-    </ul>
+<aside>
+  <h1>Alex Brooks</h1>
+  <p class="role">Visual artist and video producer<br>Atlanta, Georgia</p>
+  <img class="sprite" src="img/sprite.gif" alt="" width="300" height="300">
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#video">Video</a>
+    <a href="#resume">Résumé</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="links">
+    <a href="mailto:alexander.a.brooks@gmail.com">alexander.a.brooks@gmail.com</a>
+    <a href="https://www.instagram.com/alex.a.brooks/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/@cascadecascade4184" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.tiktok.com/@i.like.junk.cards" target="_blank" rel="noopener">TikTok</a>
   </div>
-  <div>
-    <h2>Shows and series</h2>
-    <ul>
-      <li>Student-led gallery show, Georgia State University, 2019</li>
-      <li><i>Intimate Distance</i>, charcoal and oil series, 2018 to 2020</li>
-      <li><i>holding hands</i>, animated short, 2019</li>
-    </ul>
+</aside>
+
+<main>
+
+<section id="work">
+  <h2>Work</h2>
+  <div class="list">
+    <details open>
+      <summary data-img="img/burning-up.jpg"><span class="t">Burning Up</span><span class="y">2021</span><span class="m">Graphite on paper with digital color, 8.5 × 11 in.</span></summary>
+      <div class="body"><img src="img/burning-up.jpg" alt="Figure with its head in its hands, hair replaced by flame, wrapped in a striped blanket" width="1080" height="1350"></div>
+    </details>
+    <details>
+      <summary data-img="img/tower-of-babel.jpg"><span class="t">Moments Before the Destruction of the Tower of Babel</span><span class="y">2018</span><span class="m">Charcoal on paper, 25 × 30 in.</span></summary>
+      <div class="body"><img src="img/tower-of-babel.jpg" alt="Charcoal landscape of hills crowded with faces and figures under a smoking tower" width="1080" height="791" loading="lazy"><p>Concentration piece, Georgia State University.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/intimate-distance-1.jpg"><span class="t">Intimate Distance #1</span><span class="y">2018</span><span class="m">Charcoal on paper</span></summary>
+      <div class="body"><img src="img/intimate-distance-1.jpg" alt="Charcoal drawing of a figure seen from behind holding another close" width="1080" height="1080" loading="lazy"><p>From the Intimate Distance series.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/laying-down.jpg"><span class="t">Laying Down</span><span class="y">2020</span><span class="m">Charcoal on paper with digital color</span></summary>
+      <div class="body"><img src="img/laying-down.jpg" alt="Two people lying face to face under a blanket, one with green hair" width="1080" height="821" loading="lazy"><p>From the Intimate Distance series.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/intimate-distance-4.jpg"><span class="t">Intimate Distance #4</span><span class="y">2018</span><span class="m">Oil on canvas</span></summary>
+      <div class="body"><img src="img/intimate-distance-4.jpg" alt="Oil painting of a figure in glasses resting against a shoulder, blue window behind" width="1080" height="818" loading="lazy"><p>From the Intimate Distance series.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/in-the-clouds.jpg"><span class="t">In the Clouds</span><span class="y">2020</span><span class="m">Graphite on paper with digital color</span></summary>
+      <div class="body"><img src="img/in-the-clouds.jpg" alt="Profile of a woman with orange hair against purple clouds and an orange sky" width="1080" height="835" loading="lazy"></div>
+    </details>
+    <details>
+      <summary data-img="img/rocky-mountains.jpg"><span class="t">Rocky Mountains, 2022</span><span class="y">2019</span><span class="m">Charcoal on paper</span></summary>
+      <div class="body"><img src="img/rocky-mountains.jpg" alt="Charcoal landscape of folded hills with a single bare tree" width="1080" height="841" loading="lazy"><p>Made for a student-led gallery show.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/danger-inc.jpg"><span class="t">Danger Incorporated</span><span class="y"></span><span class="m">Digital illustration</span></summary>
+      <div class="body"><img src="img/danger-inc.jpg" alt="Two figures in flat pink and red tones on blue, one holding a bouquet of pigeons, under the words Danger Inc" width="1080" height="1270" loading="lazy"><p>Fan art for the Atlanta group Danger Incorporated.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/turnaround.jpg"><span class="t">Character turnaround</span><span class="y">2023</span><span class="m">Digital</span></summary>
+      <div class="body"><img src="img/turnaround.jpg" alt="Front, back and side views of a character in a cropped jacket, shorts and boots" width="1600" height="1236" loading="lazy"><p>Concept art for an unreleased project.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/trollgang-shirt.jpg"><span class="t">Trollgang at Dreamhack Atlanta</span><span class="y">2025</span><span class="m">Digital, T-shirt design</span></summary>
+      <div class="body"><img src="img/trollgang-shirt.jpg" alt="Cartoon cat in a hoodie among bare trees with the text: it's cold out, do you know where your noobs are?" width="1074" height="1600" loading="lazy"></div>
+    </details>
   </div>
+</section>
+
+<section id="video">
+  <h2>Video</h2>
+  <div class="list">
+    <details>
+      <summary data-img="img/yt-g-u-fJ6yb4U.jpg"><span class="t">holding hands</span><span class="y">2019</span><span class="m">Animated short</span></summary>
+      <div class="body"><a href="https://www.youtube.com/watch?v=g-u-fJ6yb4U" target="_blank" rel="noopener"><img class="yt" src="img/yt-g-u-fJ6yb4U.jpg" alt="" width="480" height="360" loading="lazy"></a><p>Voiced by Alex Brooks and Jack Clancey. Opens on YouTube.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/yt-oSjHxxwPmp0.jpg"><span class="t">Rakdos Blink: Chainer, Nightmare Adept deck tech</span><span class="y">2023</span><span class="m">YouTube, long form</span></summary>
+      <div class="body"><a href="https://www.youtube.com/watch?v=oSjHxxwPmp0" target="_blank" rel="noopener"><img class="yt" src="img/yt-oSjHxxwPmp0.jpg" alt="" width="480" height="360" loading="lazy"></a><p>Opens on YouTube.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/yt-Y_FCmmpKXsc.jpg"><span class="t">Karador, Ghost Chieftain: a $100 Commander deck</span><span class="y">2022</span><span class="m">YouTube, long form</span></summary>
+      <div class="body"><a href="https://www.youtube.com/watch?v=Y_FCmmpKXsc" target="_blank" rel="noopener"><img class="yt" src="img/yt-Y_FCmmpKXsc.jpg" alt="" width="480" height="360" loading="lazy"></a><p>Opens on YouTube.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/yt-cevbKmTH78s.jpg"><span class="t">My favorite card: Coiling Oracle</span><span class="y"></span><span class="m">YouTube, short</span></summary>
+      <div class="body"><a href="https://www.youtube.com/watch?v=cevbKmTH78s" target="_blank" rel="noopener"><img class="yt" src="img/yt-cevbKmTH78s.jpg" alt="" width="480" height="360" loading="lazy"></a><p>Opens on YouTube.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/yt-EB-ePLe2wJU.jpg"><span class="t">Kamigawa infinite combo</span><span class="y"></span><span class="m">YouTube, short</span></summary>
+      <div class="body"><a href="https://www.youtube.com/watch?v=EB-ePLe2wJU" target="_blank" rel="noopener"><img class="yt" src="img/yt-EB-ePLe2wJU.jpg" alt="" width="480" height="360" loading="lazy"></a><p>Opens on YouTube.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/tt-7483890025432649002.jpg"><span class="t">Someone walked in with an Evangelion Carddass card</span><span class="y"></span><span class="m">TikTok</span></summary>
+      <div class="body"><a href="https://www.tiktok.com/@i.like.junk.cards/video/7483890025432649002" target="_blank" rel="noopener"><img class="tt" src="img/tt-7483890025432649002.jpg" alt="" width="1014" height="1473" loading="lazy"></a><p>Opens on TikTok.</p></div>
+    </details>
+    <details>
+      <summary data-img="img/tt-7473209704282377518.jpg"><span class="t">A one of a kind card for my PSA 1 collection</span><span class="y"></span><span class="m">TikTok</span></summary>
+      <div class="body"><a href="https://www.tiktok.com/@i.like.junk.cards/video/7473209704282377518" target="_blank" rel="noopener"><img class="tt" src="img/tt-7473209704282377518.jpg" alt="" width="1014" height="1473" loading="lazy"></a><p>Opens on TikTok.</p></div>
+    </details>
+  </div>
+</section>
+
+<section id="resume" class="resume">
+  <h2>Résumé</h2>
+  <p class="resume-links"><a href="resume.pdf">Download PDF</a> <span class="todo">LinkedIn [link]</span></p>
+  <div class="cols">
+    <div>
+      <h3>Experience</h3>
+      <ul>
+        <li><b>Freelance artist and video producer</b>, Atlanta. <span class="todo">[year]</span> to now. Drawing, animation, and video for small clients and independent projects. Recent jobs include the Trollgang shirt for Dreamhack Atlanta 2025 and character concept art for an unreleased project (2023).</li>
+        <li><b>CascadeCascade</b>, YouTube. <span class="todo">[year]</span> to now. Deck techs and shorts about Magic: The Gathering.</li>
+        <li><b>@i.like.junk.cards</b>, TikTok. Videos about junk cards, PSA 1s, and other oddball collectibles.</li>
+        <li><b class="todo">[card shop name]</b>, <span class="todo">[title]</span>. <span class="todo">[dates]</span>. <span class="todo">[a line or two about the job]</span></li>
+      </ul>
+      <h3>Education</h3>
+      <ul>
+        <li><b>Georgia State University</b>, BFA, Drawing and Painting. <span class="todo">[year]</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Skills</h3>
+      <ul class="tight">
+        <li>Charcoal, graphite, and oil</li>
+        <li>Digital illustration and color</li>
+        <li>Character design and turnarounds</li>
+        <li>Hand-drawn animation</li>
+        <li>Video editing and voice-over</li>
+        <li>Running a YouTube channel and a TikTok</li>
+        <li class="todo">[software: drawing, editing, animation]</li>
+      </ul>
+      <h3>Shows and series</h3>
+      <ul class="tight">
+        <li>Student-led gallery show, Georgia State University, 2019</li>
+        <li><i>Intimate Distance</i>, charcoal and oil series, 2018 to 2020</li>
+        <li><i>holding hands</i>, animated short, 2019</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>About</h2>
+  <p>Alex Brooks is an Atlanta-native visual artist, video producer, and occasional writer who has spent their career creating stories through drawings, animations, and videos.</p>
+  <p>Graduating from Georgia State University with a Bachelor's in Fine Arts and a concentration in Drawing and Painting, they've worked freelance to help independent visions become reality. From video essays, to comedy skits, all the way to heartfelt animation, Alex tries to cover the entire human experience, and not just the serious parts.</p>
+  <p>Alex's serious visual work is focused on intimacy at its proxemic level, but when necessary can lean back from the stuffy gallery-talk to just talk about their hobbies in a detailed way.</p>
+</section>
+
+<section id="contact" class="about">
+  <h2>Contact</h2>
+  <p><a href="mailto:alexander.a.brooks@gmail.com">alexander.a.brooks@gmail.com</a><br>
+  <a href="https://www.instagram.com/alex.a.brooks/" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.youtube.com/@cascadecascade4184" target="_blank" rel="noopener">YouTube</a>, <a href="https://www.tiktok.com/@i.like.junk.cards" target="_blank" rel="noopener">TikTok</a></p>
+</section>
+
+<footer>
+  <span>© 2026 Alex Brooks</span>
+</footer>
+
+</main>
 </div>
+
+<img class="peek" alt="" src="">
+<script>
+(function () {
+  var peek = document.querySelector('.peek');
+  document.querySelectorAll('summary[data-img]').forEach(function (s) {
+    s.addEventListener('mouseenter', function () {
+      if (s.parentNode.open) return;
+      peek.src = s.dataset.img;
+      peek.classList.add('on');
+    });
+    s.addEventListener('mousemove', function (e) {
+      var x = e.clientX + 24, y = e.clientY + 16;
+      if (x + 320 > window.innerWidth) x = e.clientX - 344;
+      if (y + 360 > window.innerHeight) y = window.innerHeight - 370;
+      peek.style.left = x + 'px';
+      peek.style.top = y + 'px';
+    });
+    s.addEventListener('mouseleave', function () { peek.classList.remove('on'); });
+    s.addEventListener('click', function () { peek.classList.remove('on'); });
+  });
+})();
+</script>
 </body>
 </html>
